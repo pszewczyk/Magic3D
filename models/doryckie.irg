@@ -1,0 +1,4 @@
+model = models/doryckie.x;
+texture = models/doryckie-tex.bmp;
+anims = {
+}

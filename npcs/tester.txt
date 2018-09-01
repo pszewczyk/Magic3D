@@ -1,0 +1,45 @@
+model = models/male1.irg;
+name = ¯ó³ta Lodówka;
+stats = {
+	maxhp = 100;
+	maxmp = 100;
+}
+inventory = {
+	head = empty;
+	arms = empty;
+	chest = empty;
+	legs = items/dzynsy.txt;
+	foots = empty;
+	hands = empty;
+}
+skills = {
+	fist = actions/fist.txt;
+}
+
+talk= {
+	invitation = Masz jakiœ problem? Zg³oœ siê do Wuja Toma.;
+	q4 = {
+		ask = Napi³bym siê czegoœ mocniejszego.;
+		answer = Hmm, mam tu tak¹ buteleczkê. Lepiej jednak uwa¿aj, podobno mocno kopie.;
+		gift = items/sprys.txt;
+	}
+	q3 = {
+		ask = Mo¿esz nauczyæ mnie lepiej walczyæ?;
+		answer = Moge obdarzyæ ciê nadludzk¹ moc¹, której sekret powierzy³ mi mój mistrz. Pamiêtaj, u¿ywaj jej m¹drze!;
+		knowlege = actions/great_fist.txt;
+	}
+	q2 = {
+		ask = Jak dostaæ siê do Rysia Statyby?;
+		answer = Tego nie mogê ci powiedzieæ, musisz najpierw przejœæ próbê;
+	}
+	q1 = {
+		ask = Dasz mi jakieœ ubranie?;
+		answer = Mo¿esz wzi¹æ te spodnie, mamy ich du¿o;
+		gift = items/dzynsy.txt;
+	}
+
+	end= {
+		ask = ¯egnaj.;
+		answer = Do zobaczenia;
+	}
+}

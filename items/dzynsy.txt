@@ -1,0 +1,9 @@
+name = Dzynsy;
+id = dzynsy;
+gender = male;
+model = models/dzynsy.txt;
+type = legs;
+icon = pics/icons/dzynsy.png;
+adds = {
+	ap = 20;
+}

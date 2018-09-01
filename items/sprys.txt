@@ -1,0 +1,8 @@
+name = P³yn do spryskiwaczy;
+id = sprys;
+model = models/sprys.txt;
+type = potion;
+icon = pics/icons/potion.png;
+adds = {
+	hp = -100;
+}

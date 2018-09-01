@@ -1,0 +1,16 @@
+model = models/player.irg;
+name = Ja;
+stats = {
+	maxhp = 100;
+	maxmp = 100;
+}
+inventory = {
+	head = empty;
+	arms = empty;
+	torso = empty;
+	legs = empty;
+	foots = empty;
+	hands = empty;
+}
+skills = {
+}

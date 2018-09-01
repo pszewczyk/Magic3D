@@ -1,0 +1,6 @@
+resX = 800;
+resY = 600;
+fullscreen = false;
+fps = 60;
+loadingScreen = pics/loading.bmp;
+logfile = game.log;

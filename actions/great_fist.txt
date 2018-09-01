@@ -1,0 +1,12 @@
+name = Potê¿ne uderzenie;
+id = great_fist;
+castingTime = 7;
+anim = prawy_prosty;
+icon = pics/icons/fist1.png;
+dist = 100;
+effects = {
+	hp = -50;
+}
+selfEffects = {
+
+}

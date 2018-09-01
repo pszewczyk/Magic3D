@@ -1,0 +1,4 @@
+model = models/czapka1.x;
+texture = models/czapka1.png;
+anims = {
+}

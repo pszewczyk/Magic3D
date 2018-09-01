@@ -1,0 +1,13 @@
+name = Potê¿ne kopniêcie;
+id = high_kick;
+castingTime = 41;
+duration = 24;
+anim = kick_z_polobrotu;
+icon = pics/icons/kick1.png;
+dist = 100;
+effects = {
+	hp = -24;
+}
+selfEffects = {
+
+}

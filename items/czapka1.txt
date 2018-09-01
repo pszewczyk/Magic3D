@@ -1,0 +1,10 @@
+name = Czerwona Czapka;
+id = czerwona_czapka;
+gender = male;
+model = models/czapka1.txt;
+type = head;
+icon = pics/icons/czapka1.png;
+adds = {
+	ap = 10;
+	maxmp = 10;
+}

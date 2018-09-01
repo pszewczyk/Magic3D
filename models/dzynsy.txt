@@ -1,0 +1,5 @@
+model = models/dzynsy.x;
+texture = models/dzynsy-tex.png;
+anims = {
+	free = 132,132;
+}

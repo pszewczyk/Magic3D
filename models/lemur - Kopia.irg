@@ -1,0 +1,6 @@
+model = lemur.x
+texture = lemur.bmp
+anims = {
+	run = 0,10;
+	standing = 10,32;
+}

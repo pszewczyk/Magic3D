@@ -1,0 +1,13 @@
+model = models/male1.x;
+texture = models/male-tex.png;
+anims = {
+	run = 0,19;
+	standing = 20,20;
+	walking = 22,41;
+	standing_alert = 42,87;
+	prawy_prosty = 87,94;
+	kick = 94,105;
+	kick_z_polobrotu = 105,121;
+	die = 122,132;
+	lying = 132,132;
+}
