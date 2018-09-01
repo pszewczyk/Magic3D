@@ -1,0 +1,3 @@
+map = maps/samplemap.mmap;
+config = config/conf.txt;
+keyboard = config/keyboard.txt

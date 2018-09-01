@@ -1,0 +1,123 @@
+# Project: Magic3d
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = irgame_private.res
+OBJ  = src/camera.o src/config.o src/game.o src/interface.o src/io.o src/keyboard.o src/main.o src/mesh.o src/mortal.o src/primitives.o src/world.o src/defstable.o src/action.o src/machine.o src/drawable.o src/map.o src/globalcrap.o src/menu.o src/logger.o src/item.o src/npc.o src/player.o src/question.o src/target.o src/inventory.o src/window.o src/icon.o src/dcontainer.o src/spellbar.o src/minimap.o src/spellscreen.o $(RES)
+LINKOBJ  = src/camera.o src/config.o src/game.o src/interface.o src/io.o src/keyboard.o src/main.o src/mesh.o src/mortal.o src/primitives.o src/world.o src/defstable.o src/action.o src/machine.o src/drawable.o src/map.o src/globalcrap.o src/menu.o src/logger.o src/item.o src/npc.o src/player.o src/question.o src/target.o src/inventory.o src/window.o src/icon.o src/dcontainer.o src/spellbar.o src/minimap.o src/spellscreen.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" -lIrrlicht    
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = Magic3d.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Magic3d.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Magic3d.exe" $(LIBS)
+
+src/camera.o: src/camera.cpp
+	$(CPP) -c src/camera.cpp -o src/camera.o $(CXXFLAGS)
+
+src/config.o: src/config.cpp
+	$(CPP) -c src/config.cpp -o src/config.o $(CXXFLAGS)
+
+src/game.o: src/game.cpp
+	$(CPP) -c src/game.cpp -o src/game.o $(CXXFLAGS)
+
+src/interface.o: src/interface.cpp
+	$(CPP) -c src/interface.cpp -o src/interface.o $(CXXFLAGS)
+
+src/io.o: src/io.cpp
+	$(CPP) -c src/io.cpp -o src/io.o $(CXXFLAGS)
+
+src/keyboard.o: src/keyboard.cpp
+	$(CPP) -c src/keyboard.cpp -o src/keyboard.o $(CXXFLAGS)
+
+src/main.o: src/main.cpp
+	$(CPP) -c src/main.cpp -o src/main.o $(CXXFLAGS)
+
+src/mesh.o: src/mesh.cpp
+	$(CPP) -c src/mesh.cpp -o src/mesh.o $(CXXFLAGS)
+
+src/mortal.o: src/mortal.cpp
+	$(CPP) -c src/mortal.cpp -o src/mortal.o $(CXXFLAGS)
+
+src/primitives.o: src/primitives.cpp
+	$(CPP) -c src/primitives.cpp -o src/primitives.o $(CXXFLAGS)
+
+src/world.o: src/world.cpp
+	$(CPP) -c src/world.cpp -o src/world.o $(CXXFLAGS)
+
+src/defstable.o: src/defstable.cpp
+	$(CPP) -c src/defstable.cpp -o src/defstable.o $(CXXFLAGS)
+
+src/action.o: src/action.cpp
+	$(CPP) -c src/action.cpp -o src/action.o $(CXXFLAGS)
+
+src/machine.o: src/machine.cpp
+	$(CPP) -c src/machine.cpp -o src/machine.o $(CXXFLAGS)
+
+src/drawable.o: src/drawable.cpp
+	$(CPP) -c src/drawable.cpp -o src/drawable.o $(CXXFLAGS)
+
+src/map.o: src/map.cpp
+	$(CPP) -c src/map.cpp -o src/map.o $(CXXFLAGS)
+
+src/globalcrap.o: src/globalcrap.cpp
+	$(CPP) -c src/globalcrap.cpp -o src/globalcrap.o $(CXXFLAGS)
+
+src/menu.o: src/menu.cpp
+	$(CPP) -c src/menu.cpp -o src/menu.o $(CXXFLAGS)
+
+src/logger.o: src/logger.cpp
+	$(CPP) -c src/logger.cpp -o src/logger.o $(CXXFLAGS)
+
+src/item.o: src/item.cpp
+	$(CPP) -c src/item.cpp -o src/item.o $(CXXFLAGS)
+
+src/npc.o: src/npc.cpp
+	$(CPP) -c src/npc.cpp -o src/npc.o $(CXXFLAGS)
+
+src/player.o: src/player.cpp
+	$(CPP) -c src/player.cpp -o src/player.o $(CXXFLAGS)
+
+src/question.o: src/question.cpp
+	$(CPP) -c src/question.cpp -o src/question.o $(CXXFLAGS)
+
+src/target.o: src/target.cpp
+	$(CPP) -c src/target.cpp -o src/target.o $(CXXFLAGS)
+
+src/inventory.o: src/inventory.cpp
+	$(CPP) -c src/inventory.cpp -o src/inventory.o $(CXXFLAGS)
+
+src/window.o: src/window.cpp
+	$(CPP) -c src/window.cpp -o src/window.o $(CXXFLAGS)
+
+src/icon.o: src/icon.cpp
+	$(CPP) -c src/icon.cpp -o src/icon.o $(CXXFLAGS)
+
+src/dcontainer.o: src/dcontainer.cpp
+	$(CPP) -c src/dcontainer.cpp -o src/dcontainer.o $(CXXFLAGS)
+
+src/spellbar.o: src/spellbar.cpp
+	$(CPP) -c src/spellbar.cpp -o src/spellbar.o $(CXXFLAGS)
+
+src/minimap.o: src/minimap.cpp
+	$(CPP) -c src/minimap.cpp -o src/minimap.o $(CXXFLAGS)
+
+src/spellscreen.o: src/spellscreen.cpp
+	$(CPP) -c src/spellscreen.cpp -o src/spellscreen.o $(CXXFLAGS)
+
+irgame_private.res: irgame_private.rc 
+	$(WINDRES) -i irgame_private.rc --input-format=rc -o irgame_private.res -O coff 
