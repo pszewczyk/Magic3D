@@ -1,6 +1,6 @@
 #include "menu.h"
 
-MMenu::MMenu(string t, int X, int Y)
+MMenu::MMenu(std::string t, int X, int Y)
     : title(t)
     , x(X)
     , y(Y)
@@ -10,7 +10,7 @@ MMenu::MMenu(string t, int X, int Y)
     printf("Menu '%s' created!\n", t.c_str());
 }
 
-MMenu::MMenu(string t, int X, int Y, int W, int H)
+MMenu::MMenu(std::string t, int X, int Y, int W, int H)
     : title(t)
     , x(X)
     , y(Y)
@@ -31,13 +31,13 @@ void MMenu::addButton(MButton* b) {
     b->setRect(x,y+buttons.size()*buttonHeight,width,buttonHeight);
 }
 
-void MMenu::addButton(string id, string text) {
+void MMenu::addButton(std::string id, std::string text) {
     MButton* b = new MButton(id, text);
     buttons.push_back(b);
     b->setRect(x,y+buttons.size()*buttonHeight,width,buttonHeight);
 }
 
-string MMenu::current() {
+std::string MMenu::current() {
     for(int i=0; i<buttons.size(); i++)
         if(buttons[i]->hover(Gmachine->getCursorX(), Gmachine->getCursorY())) return buttons[i]->getId();
     return "none";
@@ -50,7 +50,7 @@ void MMenu::draw() {
         buttons[i]->draw();
 }
 
-bool MMenu::isDown(string b) {
+bool MMenu::isDown(std::string b) {
     if(current()==b && Gkeyboard->IsKeyDown(KEY_LBUTTON)){
         //while(Gkeyboard->IsKeyDown(KEY_LBUTTON));
         Gkeyboard->clear(KEY_LBUTTON);

@@ -1,6 +1,6 @@
 #include "question.h"
 
-MQuestion::MQuestion(string d, CDefsTable* defs)
+MQuestion::MQuestion(std::string d, CDefsTable* defs)
     : ask(defs->GetString("ask","Nie wiem o co spytaæ."))
     , answer(defs->GetString("answer","Nie wiem co odpowiedzieæ"))
     , gift(defs->GetString("gift","nothing"))
@@ -9,19 +9,19 @@ MQuestion::MQuestion(string d, CDefsTable* defs)
 {
 }
 
-string MQuestion::getAsk() {
+std::string MQuestion::getAsk() {
     return ask;
 }
 
-string MQuestion::getAnswer() {
+std::string MQuestion::getAnswer() {
     return answer;
 }
 
-string MQuestion::getGift() {
+std::string MQuestion::getGift() {
     return gift;
 }
 
-string MQuestion::getKnowlege() {
+std::string MQuestion::getKnowlege() {
     return knowlege;
 }
 
@@ -34,7 +34,7 @@ MTalk::MTalk(CDefsTable* defs)
     : invitation(defs->GetString("invitation", "nie wiem jak ciê przywitaæ"))
     , chosenOne(0)
 {
-    vector<string> vals = defs->GetTabeleK();
+    std::vector<std::string> vals = defs->GetTabeleK();
     
     questions.clear();
     for(int i=0; i<vals.size(); i++){
@@ -43,8 +43,8 @@ MTalk::MTalk(CDefsTable* defs)
     }
 }
 
-vector<string> MTalk::getAsks() {
-    vector<string> result;
+std::vector<std::string> MTalk::getAsks() {
+    std::vector<std::string> result;
     for(int i=0; i<questions.size(); i++)
         result.push_back(questions[i]->getAsk());
     return result;
@@ -66,19 +66,19 @@ void MTalk::up() {
     chosenOne%=askSprites.size();
 }
 
-string MTalk::getCurrentAnswer() {
+std::string MTalk::getCurrentAnswer() {
     return questions[chosenOne]->getAnswer();
 }
 
-string MTalk::getInvitation() {
+std::string MTalk::getInvitation() {
     return invitation;
 }
 
-string MTalk::getGiftString() {
+std::string MTalk::getGiftString() {
     return questions[chosenOne]->getGift();
 }
 
-string MTalk::getKnowlegeString() {
+std::string MTalk::getKnowlegeString() {
     return questions[chosenOne]->getKnowlege();
 }
 

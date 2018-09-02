@@ -29,7 +29,7 @@ protected:
 public:
     int alfa;
     MSprite();
-    MSprite(string filename);
+    MSprite(std::string filename);
     ~MSprite();
     virtual void draw();
 };
@@ -41,7 +41,7 @@ private:
 public:
     MBar();
     ~MBar();
-    MBar(int max, string tex);
+    MBar(int max, std::string tex);
     void setTexture(ITexture*);
     void setValue(int);
     void setMaximum(int);
@@ -54,26 +54,26 @@ public:
 
 class MText : public MDrawable{
 private:
-    string text;
+    std::string text;
     IGUIFont* font;
     video::SColor color;
     MText();
 public:
-    MText(int, int, string);
-    MText(string);
+    MText(int, int, std::string);
+    MText(std::string);
     void setColor(int, int, int, int);
     virtual void draw();
 };
 
 class MButton : public MSprite {
 private:
-    string text;
-    string id;
+    std::string text;
+    std::string id;
 public:
-    MButton(string id, string text);
+    MButton(std::string id, std::string text);
     bool hover(int xPos, int yPos);
     bool hover();
-    string getId();
+    std::string getId();
     void focus();
     void unfocus();
     void draw();
@@ -81,13 +81,13 @@ public:
 
 class MSpeak : public MSprite {
 private:
-    string text;
+    std::string text;
     Mvector3d* speaker;
 public:
-    MSpeak(string, Mvector3d*);
+    MSpeak(std::string, Mvector3d*);
     ~MSpeak();
     
-    void setText(string);    
+    void setText(std::string);    
     void draw();
 };
 

@@ -7,37 +7,37 @@
 
 class MQuestion {
 private:
-    string ask;
-    string answer;
-    string gift;
-    string knowlege;
-    string id;
+    std::string ask;
+    std::string answer;
+    std::string gift;
+    std::string knowlege;
+    std::string id;
 public:
-    MQuestion(string, CDefsTable*);
+    MQuestion(std::string, CDefsTable*);
     ~MQuestion();
-    string getAsk();
-    string getAnswer();
-    string getGift();
-    string getKnowlege();
+    std::string getAsk();
+    std::string getAnswer();
+    std::string getGift();
+    std::string getKnowlege();
     bool end();
 };
 
 class MTalk : public MDrawable{
 private:
-    vector<MQuestion*> questions;
-    vector<MText*> askSprites;
-    string invitation;
+    std::vector<MQuestion*> questions;
+    std::vector<MText*> askSprites;
+    std::string invitation;
     int chosenOne;
 public:
     MTalk(CDefsTable*);
-    vector<string> getAsks();
+    std::vector<std::string> getAsks();
     void down();
     void up();
     void draw();
-    string getCurrentAnswer();
-    string getGiftString();
-    string getKnowlegeString();
-    string getInvitation();
+    std::string getCurrentAnswer();
+    std::string getGiftString();
+    std::string getKnowlegeString();
+    std::string getInvitation();
     bool end();
 };
 

@@ -40,7 +40,7 @@ MAction* MNpc::getKnowlege() {
     return action;
 }
 
-string MNpc::act() {
+std::string MNpc::act() {
     if(dead) return "dead";
     say(talk->getInvitation());
     return "talk";

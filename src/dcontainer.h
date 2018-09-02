@@ -6,11 +6,11 @@
 
 class MDrawableContainer : public MDrawable {
 protected:
-    map<string, MDrawable*> drawables;
+    std::map<std::string, MDrawable*> drawables;
 public:
     MDrawableContainer();
-    void addDrawable(string, MDrawable*);
-    void rmDrawable(string);
+    void addDrawable(std::string, MDrawable*);
+    void rmDrawable(std::string);
     virtual void draw();
 };
 

@@ -9,7 +9,7 @@ private:
     bool check;
 public:
     MIcon();
-    MIcon(string);
+    MIcon(std::string);
     
     bool hover(int, int);
     

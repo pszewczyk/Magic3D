@@ -8,7 +8,7 @@ MBar::MBar()
     Height = 10;
 }
 
-MBar::MBar(int max, string tex)
+MBar::MBar(int max, std::string tex)
 	: value(max)
 	, maximum(max)
 {
@@ -48,7 +48,7 @@ MSprite::MSprite()
     font = Gmachine->getDevice()->getGUIEnvironment()->getFont("fonts/nyala.xml");
 }
 
-MSprite::MSprite(string filename)
+MSprite::MSprite(std::string filename)
 	: texture(Gmachine->getDriver()->getTexture(filename.c_str()))
 	, font(Gmachine->getGuienv()->getFont("fonts/nyala.xml"))
 	, alfa(255)
@@ -78,7 +78,7 @@ MBar::~MBar() {
     
 }
 
-MText::MText(int a, int b, string t)
+MText::MText(int a, int b, std::string t)
     : text(t)
     , font(Gmachine->getDefaultFont()) 
     , color(video::SColor(255,255,255,255))
@@ -87,7 +87,7 @@ MText::MText(int a, int b, string t)
     Y = b;
 }
 
-MText::MText(string t)
+MText::MText(std::string t)
     : text(t)
     , font(Gmachine->getDefaultFont()) 
     , color(video::SColor(255,255,255,255))
@@ -105,7 +105,7 @@ void MText::setColor(int a, int r, int g, int b) {
     color = video::SColor(a,r,g,b);
 }
 
-MButton::MButton(string i, string t)
+MButton::MButton(std::string i, std::string t)
     : MSprite()
     , text(t)
     , id(i)
@@ -113,7 +113,7 @@ MButton::MButton(string i, string t)
 }
 
 void MButton::draw() {
-    wstring w = StrToWstr(text);
+    std::wstring w = StrToWstr(text);
     video::SColor color(255, 255, 255, 255);
     if(hover()) color = video::SColor(255,255,200,100);
     font->draw(w.c_str(), core::rect <s32> (X, Y, Width, Height), color);
@@ -130,11 +130,11 @@ bool MButton::hover() {
     return xPos>=X && yPos>=Y && xPos<=X+Width && yPos<=Y+Height;
 }
 
-string MButton::getId() {
+std::string MButton::getId() {
     return id;
 }
 
-MSpeak::MSpeak(string s, Mvector3d* m)
+MSpeak::MSpeak(std::string s, Mvector3d* m)
     : speaker(m)
     , text(s)
 {
@@ -147,10 +147,10 @@ MSpeak::~MSpeak() {
 void MSpeak::draw() {
     position2d <s32> p = Gmachine->getManager()->getSceneCollisionManager()->getScreenCoordinatesFrom3DPosition(vector3df (speaker->x, speaker->y+MSCALE, speaker->z));
     Gmachine->getDriver()->draw2DImage(texture, position2d <s32> (p.X-10,p.Y-100), rect <s32> (0, 0, 350, 100), 0, SColor(128, 255, 255, 255), true);
-    wstring w = StrToWstr(BreakLines(text,55));
+    std::wstring w = StrToWstr(BreakLines(text,55));
     font->draw(w.c_str(), core::rect <s32> (p.X , p.Y-90, 100, 70), video::SColor(255, 0, 0, 0));
 }
 
-void MSpeak::setText(string s) {
+void MSpeak::setText(std::string s) {
     text = s;
 }

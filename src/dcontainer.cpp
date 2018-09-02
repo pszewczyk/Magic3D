@@ -4,17 +4,17 @@ MDrawableContainer::MDrawableContainer()
 {
 }
 
-void MDrawableContainer::addDrawable(string name, MDrawable* d) {
+void MDrawableContainer::addDrawable(std::string name, MDrawable* d) {
     printf("adding drawable: %s\n", name.c_str());
     drawables[name] = d;
 }
 
-void MDrawableContainer::rmDrawable(string name) {
+void MDrawableContainer::rmDrawable(std::string name) {
     drawables.erase(name);
 }
 
 void MDrawableContainer::draw() {
-    for(map<string, MDrawable*>::iterator it = drawables.begin(); it!=drawables.end(); it++)
+    for(std::map<std::string, MDrawable*>::iterator it = drawables.begin(); it!=drawables.end(); it++)
         it->second->draw();
 }
 
@@ -31,12 +31,12 @@ void MLinkedContainer::draw() {
                     vector3df (center->x + radius.x, center->y + radius.y, center->z + radius.z));
     X = p.X-Width/2;
     Y = p.Y;
-    for(map<string, MDrawable*>::iterator it = drawables.begin(); it!=drawables.end(); it++)
+    for(std::map<std::string, MDrawable*>::iterator it = drawables.begin(); it!=drawables.end(); it++)
         it->second->Translate(X,Y);
         
     MDrawableContainer::draw();
     
-    for(map<string, MDrawable*>::iterator it = drawables.begin(); it!=drawables.end(); it++)
+    for(std::map<std::string, MDrawable*>::iterator it = drawables.begin(); it!=drawables.end(); it++)
         it->second->Translate(-X,-Y);
 }
 

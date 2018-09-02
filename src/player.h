@@ -20,8 +20,8 @@ public:
     bool isTalking();
     void setTalking();
     void endTalking();
-    string act();
-    void useItem(string);
+    std::string act();
+    void useItem(std::string);
     void updateBars();
     virtual void update();
     bool Control(int);

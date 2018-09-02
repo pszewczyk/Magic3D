@@ -31,7 +31,7 @@ private:
         MMenu* mainMenu;
         MMenu* pauseMenu;
         int fps;
-        string status;
+	std::string status;
         int framesize;
         int czas;
         

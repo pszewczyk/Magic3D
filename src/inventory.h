@@ -8,12 +8,12 @@
 
 class MInventory : public MWindow {
 private:
-    map<string, MItem*> equiped;
+    std::map<std::string, MItem*> equiped;
     bool eqble(MItem*);
     bool eatable(MItem*);
     MItem* ContextItem;
 public:
-    vector<MItem*> slots;
+    std::vector<MItem*> slots;
     MInventory();
     MInventory(CDefsTable*);
     bool grab(MItem*);
@@ -21,9 +21,9 @@ public:
     bool unequip(MItem*);
     bool ThrowOut(int);
     bool ThrowOut(MItem*);
-    MItem* getEquiped(string);
+    MItem* getEquiped(std::string);
     virtual void draw();
-    string onClick();
+    std::string onClick();
     void showCMenu();
     void highlight(bool);
     void updatePos(double,double,double);

@@ -144,7 +144,7 @@ MMesh::MMesh()
  */
 }
 
-void MAnimatedMesh::loadModel(string filename) {
+void MAnimatedMesh::loadModel(std::string filename) {
     printf("loading model from %s\n", filename.c_str());
         
     CDefsTable* defs = new CDefsTable(filename);
@@ -158,9 +158,9 @@ void MAnimatedMesh::loadModel(string filename) {
     node->setMaterialFlag (video::EMF_LIGHTING, false);
     
     CDefsTable* animsDefs = defs->GetTable("anims");
-    vector<string> names = animsDefs->GetWartosci();
+    std::vector<std::string> names = animsDefs->GetWartosci();
     for(int i=0; i<names.size(); i++) {
-        vector<int> v;
+        std::vector<int> v;
         v = animsDefs->GetIntList(names[i]);
         addAnim(names[i], v[0], v[1]);
     }
@@ -197,7 +197,7 @@ bool MAnimatedMesh::setAnim(int s, int e)
     return true;
 }
 
-bool MAnimatedMesh::setAnim(string label) {
+bool MAnimatedMesh::setAnim(std::string label) {
     if(anims.find(label) != anims.end()) {
         int s = anims[label].first;
         int e = anims[label].second;
@@ -207,9 +207,9 @@ bool MAnimatedMesh::setAnim(string label) {
     return false;
 }
 
-bool MAnimatedMesh::addAnim(string label, int s, int e) {
+bool MAnimatedMesh::addAnim(std::string label, int s, int e) {
     if(s <= e) {
-        anims[label] = make_pair(s,e);
+        anims[label] = std::make_pair(s,e);
         return true;
     }
     return false;

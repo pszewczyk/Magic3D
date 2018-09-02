@@ -16,29 +16,29 @@
 class CDefsTable
 {
 	private:
-		map <string, string> Wartosci;
-		map <string, CDefsTable*> Tabele;
+		std::map <std::string, std::string> Wartosci;
+		std::map <std::string, CDefsTable*> Tabele;
         CDefsTable();
 	public:
-		CDefsTable(ifstream&);
-		CDefsTable(string);
+		CDefsTable(std::ifstream&);
+		CDefsTable(std::string);
 		~CDefsTable();
 
-		bool loadData(ifstream&);
-		int GetInt(const string, const int) const;
-		float GetFloat(const string, const float) const;
-		bool GetBool(const string, const bool = true) const;
-		string GetString(const string, const string = "error") const;
-		CDefsTable* GetTable(const string) const;
-		vector <string> GetList(const string, char = ',') const;
-		vector <int> GetIntList(const string, char = ',') const;
-		vector <string> GetTabeleK() const;
-		vector <CDefsTable*> GetTabele() const;
-		vector <string> GetWartosci() const;
-		vector <string> GetRealWartosci() const;
-		map<string, int> GetIntMap(const string) const;
+		bool loadData(std::ifstream&);
+		int GetInt(const std::string, const int) const;
+		float GetFloat(const std::string, const float) const;
+		bool GetBool(const std::string, const bool = true) const;
+		std::string GetString(const std::string, const std::string = "error") const;
+		CDefsTable* GetTable(const std::string) const;
+		std::vector <std::string> GetList(const std::string, char = ',') const;
+		std::vector <int> GetIntList(const std::string, char = ',') const;
+		std::vector <std::string> GetTabeleK() const;
+		std::vector <CDefsTable*> GetTabele() const;
+		std::vector <std::string> GetWartosci() const;
+		std::vector <std::string> GetRealWartosci() const;
+		std::map<std::string, int> GetIntMap(const std::string) const;
 		
-		string GetSource() const;
+		std::string GetSource() const;
 };
 
 #endif

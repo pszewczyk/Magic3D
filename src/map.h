@@ -22,8 +22,8 @@ public:
     MMap();
     ~MMap();
     MMap(int, int);
-    MMap(string);
-    bool loadFile(string); //wczytaj mapê z pliku
+    MMap(std::string);
+    bool loadFile(std::string); //wczytaj mapê z pliku
     void genTerrain();  //wygeneruj obiekt terenu (mesha)
     bool isLegal(float, float);
     void setMem();

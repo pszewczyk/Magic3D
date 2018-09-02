@@ -37,7 +37,7 @@ void MSpellScreen::draw() {
 }
 
 
-string MSpellScreen::onClick() {
+std::string MSpellScreen::onClick() {
     if(ContextMenu) {
         for(int i=0; i<12; i++)
             if(ContextMenu->isDown(keynames[i])) {

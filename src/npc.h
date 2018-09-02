@@ -19,7 +19,7 @@ public:
     MTalk* getTalk();
     MItem* getGift();
     MAction* getKnowlege();
-    string act();
+    std::string act();
     void onSpace();
     void update();
     bool learnSkill(MAction*);

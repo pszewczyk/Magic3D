@@ -20,7 +20,7 @@ bool MPlayer::isTalking() {
     return action=="talking";
 }
 
-string MPlayer::act() {
+std::string MPlayer::act() {
     return "action playera";
 }
 
@@ -36,11 +36,11 @@ void MPlayer::endTalking() {
     lefttogo = 0;
 }
 
-void MPlayer::useItem(string s) {
+void MPlayer::useItem(std::string s) {
     if(s=="eat") {
         printf("eating\n");
         MItem* food = inventory->getContextItem();
-        for(map<string, int>::iterator it=food->adds.begin(); it!=food->adds.end(); it++) {
+        for(std::map<std::string, int>::iterator it=food->adds.begin(); it!=food->adds.end(); it++) {
             stats[it->first] += it->second;
             printf("%s += %d\n", it->first.c_str(), it->second);
         }
@@ -106,7 +106,7 @@ bool MPlayer::Control(int speed) {
         //klik myszo
         if(Gkeyboard->IsKeyDown(KEY_LBUTTON)) {
             if(!agressive && target && !isTalking()) {
-                string act = target->act();
+                std::string act = target->act();
                 if(act=="talk") setTalking();
                 if(act=="take") grab((MItem*)target);
                 Gkeyboard->clear(KEY_LBUTTON);

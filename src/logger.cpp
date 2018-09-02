@@ -1,6 +1,6 @@
 #include "logger.h"
 
-MLogger::MLogger(string filename) {
+MLogger::MLogger(std::string filename) {
     aut.open(filename.c_str());
 }
 
@@ -8,12 +8,12 @@ MLogger::~MLogger() {
     aut.close();
 }
 
-void MLogger::Error(string text) {
+void MLogger::Error(std::string text) {
     aut<<"ERROR: "<<text<<"\n";
-    cout<<"ERROR: "<<text<<"\n";
+    std::cout<<"ERROR: "<<text<<"\n";
 }
 
-void MLogger::Print(string text) {
+void MLogger::Print(std::string text) {
     aut<<text<<"\n";
-    cout<<text<<"\n";
+    std::cout<<text<<"\n";
 }

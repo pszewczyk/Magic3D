@@ -13,7 +13,7 @@ public:
     int left, right, up, bottom;
     MWindow();
     virtual void draw();
-    virtual string onClick() = 0;
+    virtual std::string onClick() = 0;
     virtual void showCMenu() = 0;
 };
 

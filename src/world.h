@@ -37,7 +37,7 @@ public:
     bool run();     //odpal device irrlichta
     void set_camera(vector3df, vector3df); //ustaw kamerê (wektor pozycji i orientacji)
     MCamera* getCamera();
-    //MAnimatedMesh* load_irg(string);    //wczytaj mesha z pliku (zwraca wskaŸnik na za³adowane)
+    //MAnimatedMesh* load_irg(std::string);    //wczytaj mesha z pliku (zwraca wskaŸnik na za³adowane)
     //czemu ma to robiæ œwiat?
     void follow(MVirMesh*);   //przywiaz kamere do obiektu
 };

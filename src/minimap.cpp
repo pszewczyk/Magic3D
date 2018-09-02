@@ -1,6 +1,6 @@
 #include "minimap.h"
 
-MMinimap::MMinimap(vector<vector<bool> > mapa) 
+MMinimap::MMinimap(std::vector<std::vector<bool> > mapa) 
     : MDrawable()
 {
     s = 10;

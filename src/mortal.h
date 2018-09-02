@@ -14,18 +14,18 @@
 
 class MMortal : public MTarget {
 protected:
-    map<string, int> stats;
-    vector<MAction*> skills;
+    std::map<std::string, int> stats;
+    std::vector<MAction*> skills;
     MInventory* inventory;
     
     int lefttogo;
     int ActionTime;
     MTarget* target;
     MSpeak* speak;
-    string action;
+    std::string action;
     MAction* CurrentAction;
 public:
-    vector<MTarget*> around;    //targety znajduj¹ce siê w pobli¿u
+    std::vector<MTarget*> around;    //targety znajduj¹ce siê w pobli¿u
     bool agressive;
     bool dead;
     bool busy;
@@ -42,7 +42,7 @@ public:
     virtual bool learnSkill(MAction* m);
     void useAction(MAction*);
     void FinishAction();
-    void hit(map<string, int> adds);
+    void hit(std::map<std::string, int> adds);
     void setTarget(MTarget* target);
     void setBusy(int);
     void WaitForAction(int);
@@ -52,12 +52,12 @@ public:
     void updateItem(MItem*);
     void ClearAll();
     MSprite* createLabel();
-    vector<MItem*> getItems();
+    std::vector<MItem*> getItems();
     
-    void say(string);
+    void say(std::string);
     void shutUp();
     
-    virtual string act() = 0;
+    virtual std::string act() = 0;
     void die();
 };
 

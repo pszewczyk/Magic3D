@@ -120,10 +120,10 @@ void MMortal::setTarget(MTarget* t) {
     target = t;
 }
 
-void MMortal::hit(map<string, int> adds) {
+void MMortal::hit(std::map<std::string, int> adds) {
     if(dead) return;
     printf("%s: aua! (%d effects)\n", name.c_str(), adds.size());
-    for(map<string,int>::iterator it = stats.begin(); it!=stats.end(); it++) {
+    for(std::map<std::string,int>::iterator it = stats.begin(); it!=stats.end(); it++) {
         if(adds.find(it->first)!=adds.end()) printf("%s += %d\n", it->first.c_str(), adds[it->first]);
         it->second += adds[it->first];
     }
@@ -142,7 +142,7 @@ vector<MItem*> MMortal::getItems() {
     return inventory->slots;
 }
 
-void MMortal::say(string s) {
+void MMortal::say(std::string s) {
     //if(speak) delete speak;
     speak->setVisible(true);
     speak->setText(s);

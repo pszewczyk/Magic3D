@@ -51,20 +51,20 @@ void MWorld::addSprite(MSprite* s) {
     sprites.push_back(s);
 }
 
-/*MAnimatedMesh* MWorld::load_irg(string filename)
+/*MAnimatedMesh* MWorld::load_irg(std::string filename)
 {
     //pamiêtaæ o zachowaniu kolejnoœci
      MAnimatedMesh* m = new MAnimatedMesh();
      objects.push_back((MVirMesh*) m);
      ifstream in;
      in.open(filename.c_str());
-     string model, tex;
+     std::string model, tex;
      in >> model >> tex;
      m->setMesh(Gmachine->getManager()->getMesh(model.c_str()));
      m->setTexture(Gmachine->getDriver()->getTexture(tex.c_str()));
      m->linkManager(Gmachine->getManager());
      int c, s, e;
-     string label;
+     std::string label;
      in >> c;
      for(int i = 0; i < c; ++i) {
         in >> label >> s >> e;

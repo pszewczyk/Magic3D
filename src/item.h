@@ -9,15 +9,15 @@
 
 class MItem : public MTarget {
 public:
-    map<string, int> adds;
-    string type;
+    std::map<std::string, int> adds;
+    std::string type;
     bool equiped;
     MIcon* icon;
     MItem(CDefsTable*);
     ~MItem();
-    string act();
+    std::string act();
     //void updateOwner(MMortal* m);
-    string getType();
+    std::string getType();
     void setEquiped(bool);
 };
 

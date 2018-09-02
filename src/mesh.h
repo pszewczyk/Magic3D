@@ -84,10 +84,10 @@ protected:
        ITexture* texture;
        int start;
        int end;
-       map<string, pair<int, int> > anims;
+       std::map<std::string, std::pair<int, int> > anims;
 public:
        MAnimatedMesh();
-       void loadModel(string filename);
+       void loadModel(std::string filename);
        void update_texture();
        void drop();
        void setMesh(IAnimatedMesh*);
@@ -97,8 +97,8 @@ public:
        void localTrans(Mvector3d);
        void linkManager(ISceneManager*);  //Dodanie syfu do managera z wy¿szych poziomów
        bool setAnim(int, int);
-       bool setAnim(string);
-       bool addAnim(string, int, int);
+       bool setAnim(std::string);
+       bool addAnim(std::string, int, int);
        void setFocus(bool);
        int getFrame();
        int getStartFrame();

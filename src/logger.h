@@ -8,12 +8,12 @@
 
 class MLogger{
 private:
-    ofstream aut;
+    std::ofstream aut;
 public:
-    MLogger(string filename);
+    MLogger(std::string filename);
     ~MLogger();
-    void Error(string text);
-    void Print(string text);
+    void Error(std::string text);
+    void Print(std::string text);
 };
 
 #endif

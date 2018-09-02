@@ -8,14 +8,14 @@
 
 using namespace std;
 
-void Error(const string message)
+void Error(const std::string message)
 {
 	printf("ERROR: %s!\n", message.c_str());
 }
 
-string Lowercase(const string a)
+std::string Lowercase(const std::string a)
 {
-	string b = a;
+	std::string b = a;
 	for(unsigned int i=0; i<b.size(); ++i)
 	{
 		if((b[i] > 64) && (b[i] < 92)) b[i] += 32;
@@ -23,9 +23,9 @@ string Lowercase(const string a)
 	return b;
 }
 
-string Uppercase(const string a)
+std::string Uppercase(const std::string a)
 {
-	string b = a;
+	std::string b = a;
 	for(unsigned int i=0; i<b.size(); ++i)
 	{
 		if((b[i] > 96) && (b[i] < 124)) b[i] -= 32;
@@ -33,9 +33,9 @@ string Uppercase(const string a)
 	return b;
 }
 
-wstring StrToWstr(const string s)
+std::wstring StrToWstr(const std::string s)
 {
-    wstring tmp;
+    std::wstring tmp;
     for( unsigned i = 0; i < s.length(); i++ )
     {
         if( s[ i ] == '¹' ) tmp += 0x0105;
@@ -62,7 +62,7 @@ wstring StrToWstr(const string s)
     return tmp;
 }
 
-int StrToInt(const string c)
+int StrToInt(const std::string c)
 {
     unsigned int d = c.size();
 	unsigned int i = 0;
@@ -86,8 +86,8 @@ int StrToInt(const string c)
 	return (minus ? (-e) : e);
 }
 
-string IntToStr(int n) {
-    string tmp, ret;
+std::string IntToStr(int n) {
+    std::string tmp, ret;
      if(n < 0) {
           ret = "-";
           n = -n;
@@ -102,9 +102,9 @@ string IntToStr(int n) {
      return ret;
 }
 
-string BreakLines(const string s, int a) {
+std::string BreakLines(const std::string s, int a) {
     int c=0;
-    string result;
+    std::string result;
     for(int i=0; i<s.size(); i++) {
         c++;
         result+=s[i];
@@ -117,8 +117,8 @@ string BreakLines(const string s, int a) {
 }
 
 
-string RandomString(int a) {
-    string result(a,'#');
+std::string RandomString(int a) {
+    std::string result(a,'#');
     for(int i=0; i<a; i++) {
         result[i] = rand()%('Z'-'A')+'A';
     }

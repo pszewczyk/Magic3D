@@ -13,17 +13,17 @@ private:
     MSprite* bg;
     MSprite* head;
     vector<MButton*> buttons;
-    string title;
+    std::string title;
     int x, y, width, buttonHeight;
 public:
-    MMenu(string, int, int);
-    MMenu(string, int, int, int, int);
+    MMenu(std::string, int, int);
+    MMenu(std::string, int, int, int, int);
     ~MMenu();
     void draw();
     void addButton(MButton*);
-    void addButton(string id, string text);
-    string current();
-    bool isDown(string);
+    void addButton(std::string id, std::string text);
+    std::string current();
+    bool isDown(std::string);
 };
 
 #endif

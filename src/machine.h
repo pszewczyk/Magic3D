@@ -34,7 +34,7 @@ private:
 	bool fullscreen;
 	
 	//lista drawabli
-	vector<MDrawable*> drawables;
+	std::vector<MDrawable*> drawables;
 public:	
     //Irrlichtowe obiekty
     IrrlichtDevice* device;
@@ -43,7 +43,7 @@ public:
     IGUIEnvironment* guienv;
     ICursorControl* cursor;
     
-    //vector<MTarget*> targets;
+    //std::vector<MTarget*> targets;
     void checkEr();
     MMachine(CDefsTable* defs, MKeyboard* keyboard);
     IrrlichtDevice* getDevice();
@@ -52,7 +52,7 @@ public:
     IGUIEnvironment* getGuienv();
     ICursorControl* getCursor();
     
-    //MItem* getItem(string filename);
+    //MItem* getItem(std::string filename);
     
     void setCursorVisible(bool);
     void setCursorPos(int x, int y);
@@ -73,10 +73,10 @@ public:
     
     IGUIFont* getDefaultFont();
     
-    IAnimatedMesh* getMesh(string filename);
-    ITexture* getTexture(string filename);
+    IAnimatedMesh* getMesh(std::string filename);
+    ITexture* getTexture(std::string filename);
     
-    void LogStdout(string);
+    void LogStdout(std::string);
     
     int random(int);
 };

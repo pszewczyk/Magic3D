@@ -1,6 +1,6 @@
 #include "target.h"
 
-MTarget::MTarget(string a)
+MTarget::MTarget(std::string a)
     : MAnimatedMesh()
     , name(a)
     , label(new MLinkedContainer())

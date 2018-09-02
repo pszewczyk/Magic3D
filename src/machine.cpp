@@ -19,14 +19,14 @@ MMachine::MMachine(CDefsTable* defs, MKeyboard* keyboard)
 
 //wywalenie pustych wskaŸników na syf
 void MMachine::checkEr() {
-    for(vector<MDrawable*>::iterator it=drawables.begin(); it!=drawables.end(); it++)
+    for(std::vector<MDrawable*>::iterator it=drawables.begin(); it!=drawables.end(); it++)
         if(*it==NULL || !(*it)) {
             it=drawables.erase(it);
             printf("another drawable erased from list\n");
         }
 }
 
-/*MItem* MMachine::getItem(string filename) {
+/*MItem* MMachine::getItem(std::string filename) {
     CDefsTable* defs = new CDefsTable(filename);
     MItem* result = new MItem(defs);
     result->setVisible(false);
@@ -108,10 +108,10 @@ void MMachine::clearScene() {
     manager->clear();
 }
 
-IAnimatedMesh* MMachine::getMesh(string filename) {
+IAnimatedMesh* MMachine::getMesh(std::string filename) {
     return manager->getMesh(filename.c_str());
 }
-ITexture* MMachine::getTexture(string filename) {
+ITexture* MMachine::getTexture(std::string filename) {
     return driver->getTexture(filename.c_str());
 }
 
@@ -119,7 +119,7 @@ IGUIFont* MMachine::getDefaultFont() {
     return device->getGUIEnvironment()->getFont("fonts/nyala.xml");
 }
 
-void MMachine::LogStdout(string filename) {
+void MMachine::LogStdout(std::string filename) {
     /*FILE* fap=*/ freopen(filename.c_str(), "w+", stdout);
 }
 

@@ -16,7 +16,7 @@ MItem::~MItem()
 {
 }
 
-string MItem::act() {
+std::string MItem::act() {
     return "take";
 }
 
@@ -29,7 +29,7 @@ string MItem::act() {
     update_pos();
 }*/
 
-string MItem::getType() {
+std::string MItem::getType() {
     return type;
 }
 

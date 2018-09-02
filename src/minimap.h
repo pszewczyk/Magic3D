@@ -15,7 +15,7 @@ protected:
     int Xpos, Ypos, Xsize, Ysize;
     int s;
 public:
-    MMinimap(vector<vector<bool> > mapa);
+    MMinimap(std::vector<std::vector<bool> > mapa);
     ~MMinimap();
     void draw();
     void updatePos(int,int);

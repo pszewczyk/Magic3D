@@ -9,14 +9,14 @@
 #include <stack>
 #include "config.h"
 
-void Error(const string);
-string Lowercase(const string a);
-string Uppercase(const string a);
-wstring StrToWstr(const string s);
-int StrToInt(const string s);
-string IntToStr(int);
-string BreakLines(const string s, int a=30);
-string RandomString(int a=4);
+void Error(const std::string);
+std::string Lowercase(const std::string a);
+std::string Uppercase(const std::string a);
+std::wstring StrToWstr(const std::string s);
+int StrToInt(const std::string s);
+std::string IntToStr(int);
+std::string BreakLines(const std::string s, int a=30);
+std::string RandomString(int a=4);
 
 char getcz();
 

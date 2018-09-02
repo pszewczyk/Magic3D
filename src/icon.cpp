@@ -4,7 +4,7 @@ MIcon::MIcon()
 {
 }
 
-MIcon::MIcon(string filename)
+MIcon::MIcon(std::string filename)
     : MSprite(filename)
     , check(false)
 {

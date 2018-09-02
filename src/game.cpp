@@ -2,7 +2,7 @@
 
 MGame::MGame(CDefsTable* defs)
 {
-	config = new CDefsTable(defs->GetString("config","conf.txt"));
+    config = new CDefsTable(defs->GetString("config","conf.txt"));
     Gkeyboard = new MKeyboard();
     Gmachine = new MMachine(config, Gkeyboard);
     fps = defs->GetInt("fps",60);
@@ -12,8 +12,8 @@ MGame::MGame(CDefsTable* defs)
 
 int MGame::loop() {
     //framerate
-    framesize = CLOCKS_PER_SEC / fps;
-    czas = clock();
+    framesize = 1000 / fps;
+    czas = clock_ms();
     printf("running with %d fps, %d framesize\n", fps, framesize);
     //test menu:
     status="menu";
@@ -77,9 +77,9 @@ void MGame::play() {
         sbar->setValue(mapa->getFps());
         
         //prosty mechanizm stabilizujÄ…cy szybkoĹ›Ä‡ gry na poziomie danego fps
-        int over = max(clock() - czas, long(0));   //przy przekroczeniu czasu szybkoĹ›Ä‡ zwiÄ™ksza siÄ™
+        int over = max(clock_ms() - czas, long(0));   //przy przekroczeniu czasu szybkoĹ›Ä‡ zwiÄ™ksza siÄ™
         int speed = (5 * (over + framesize)) / framesize;    //ustawienie szybkoĹ›ci
-        czas = clock();
+        czas = clock_ms();
         bool nth = true;
         
         if(Gkeyboard->IsKeyDown(27)) {
@@ -129,8 +129,10 @@ void MGame::play() {
         Gmachine->setCursorPos(x, y);
         
         if(!mapa->isLegal(player->x, player->z)) {
-            if(!mapa->isLegal(player->x, player->prevz)) player->BackX();
-            if(!mapa->isLegal(player->prevx, player->z)) player->BackZ();
+	    printf("illegal position! %d, %d\n", player->y, player->z);
+	    /* FIXME position is not well-reported (linux) */
+            //if(!mapa->isLegal(player->x, player->prevz)) player->BackX();
+            //if(!mapa->isLegal(player->prevx, player->z)) player->BackZ();
         }
         
         //mapa->Minimapa->updatePos(player->cx, player->cy);
@@ -153,7 +155,9 @@ void MGame::play() {
             ((MNpc*)tar)->getTalk()->draw();
         }
         Gmachine->stopDrawing();
-        if(clock() < (czas + framesize)) Sleep(czas + framesize-clock());  //czekanie na koniec klatki
+
+	int delay = czas + framesize - clock_ms();
+        if(delay > 0) Sleep(delay);  //czekanie na koniec klatki
     }
 }
 
@@ -241,6 +245,8 @@ void MGame::startGame() {
     MAction* tempaction = new MAction(new CDefsTable("actions/high_kick.txt"));
     player->learnSkill(tempaction);
     player->spellbar->addAction(tempaction,10);
+
+    player->x = player->z = 10;
     
     /*koniec HARDCODINGU*/
     status = "play";
@@ -315,7 +321,7 @@ void MGame::inventoryScreen() {
             Gkeyboard->clear('I');
         }
         if(Gkeyboard->IsKeyDown(KEY_LBUTTON)) {
-            string s = screen->onClick();
+	    std::string s = screen->onClick();
             player->useItem(s);
             Gkeyboard->clear(KEY_LBUTTON);
         }
@@ -332,7 +338,7 @@ void MGame::inventoryScreen() {
         Sleep(30);
     }
     screen->setVisible(false);
-    czas = clock();
+    czas = clock_ms();
 }
 
 void MGame::gameover() {
@@ -352,7 +358,7 @@ void MGame::gameover() {
         Sleep(30);
     }
     delete napis;
-    czas = clock();
+    czas = clock_ms();
 }
 
 void MGame::spellScreen() {
@@ -367,7 +373,7 @@ void MGame::spellScreen() {
             Gkeyboard->clear('K');
         }
         if(Gkeyboard->IsKeyDown(KEY_LBUTTON)) {
-            string s = screen->onClick();
+	    std::string s = screen->onClick();
             player->pushToBar(StrToInt(s));
             Gkeyboard->clear(KEY_LBUTTON);
         }
@@ -382,5 +388,5 @@ void MGame::spellScreen() {
         Sleep(30);
     }
     screen->setVisible(false);
-    czas = clock();
+    czas = clock_ms();
 }

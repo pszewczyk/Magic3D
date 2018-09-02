@@ -5,7 +5,7 @@ MInventory::MInventory() {
 
 MInventory::MInventory(CDefsTable* defs)
 {
-    string names[6] = {"head","torso","legs","arms","hands","foots"};
+    std::string names[6] = {"head","torso","legs","arms","hands","foots"};
     for(int i=0; i<6; i++)
         if(defs->GetString(names[i],"empty")!="empty") {
             MItem* a = new MItem(new CDefsTable(defs->GetString(names[i],"empty")));
@@ -15,7 +15,7 @@ MInventory::MInventory(CDefsTable* defs)
 }
 
 bool MInventory::eqble(MItem* b) {
-    string a = b->type;
+    std::string a = b->type;
     return a=="head" || a=="torso" || a=="legs" || a=="arms" || a=="hands" || a=="foots";
 }
 
@@ -65,7 +65,7 @@ bool MInventory::ThrowOut(MItem* a) {
         ThrowOut(i);
 }
 
-MItem* MInventory::getEquiped(string a) {
+MItem* MInventory::getEquiped(std::string a) {
     if(equiped.find(a)==equiped.end()) return NULL;
     return equiped[a];
 }
@@ -80,7 +80,7 @@ void MInventory::draw() {
     MWindow::draw();
 }
 
-string MInventory::onClick() {
+std::string MInventory::onClick() {
     if(ContextMenu) {
         if(ContextMenu->isDown("putoff")) {
             delete ContextMenu;
@@ -138,7 +138,7 @@ void MInventory::showCMenu() {
 }
 
 void MInventory::highlight(bool b) {
-    for(map<string, MItem*>::iterator it = equiped.begin(); it!=equiped.end(); it++)
+    for(std::map<std::string, MItem*>::iterator it = equiped.begin(); it!=equiped.end(); it++)
         if(it->second!=NULL) {
             it->second->setFocus(b);
         }

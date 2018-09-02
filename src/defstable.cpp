@@ -15,19 +15,19 @@ CDefsTable::CDefsTable()
 {
 }
 
-CDefsTable::CDefsTable(ifstream &b) 
+CDefsTable::CDefsTable(std::ifstream &b) 
 	: Wartosci()
 	, Tabele()
 {
 	loadData(b);
 }
 
-CDefsTable::CDefsTable(string filename) 
+CDefsTable::CDefsTable(std::string filename) 
 	: Wartosci()
 	, Tabele()
 {
-	ifstream b;
-	b.open(filename.c_str(),ifstream::in);
+	std::ifstream b;
+	b.open(filename.c_str(), std::ifstream::in);
 	if(!b) {
         printf("file %s could not be opened\n", filename.c_str());
     }
@@ -35,14 +35,14 @@ CDefsTable::CDefsTable(string filename)
 	b.close();
 }
 
-bool CDefsTable::loadData(ifstream &b)
+bool CDefsTable::loadData(std::ifstream &b)
 {
 	if(!b)
 	{
 		Error("CDefsTable: Zamkniety ifstream");
 		return false;
 	}
-	string k, v = "", t = "";
+	std::string k, v = "", t = "";
 	unsigned int d, e = 0;
 	bool u = 1;
 	char mander[1337];
@@ -155,25 +155,25 @@ bool CDefsTable::loadData(ifstream &b)
 
 CDefsTable::~CDefsTable()
 {
-	for(map <string, CDefsTable*>::iterator i = Tabele.begin(); i != Tabele.end(); ++i)
+	for(std::map <std::string, CDefsTable*>::iterator i = Tabele.begin(); i != Tabele.end(); ++i)
 	{
 		delete i->second;
 	}
 }
 
-int CDefsTable::GetInt(string a, const int b) const
+int CDefsTable::GetInt(std::string a, const int b) const
 {
 	a = Lowercase(a);
 	if(Wartosci.find(a) == Wartosci.end()) return b;
-	string c = Wartosci.find(a)->second;
+	std::string c = Wartosci.find(a)->second;
 	return StrToInt(c);
 }
 
-float CDefsTable::GetFloat(string a, const float b) const
+float CDefsTable::GetFloat(std::string a, const float b) const
 {
 	a = Lowercase(a);
 	if(Wartosci.find(a) == Wartosci.end()) return b;
-	string c = Wartosci.find(a)->second;
+	std::string c = Wartosci.find(a)->second;
 	unsigned int d = c.size();
 	unsigned int i = 0;
 	bool minus = 0;
@@ -216,25 +216,25 @@ float CDefsTable::GetFloat(string a, const float b) const
 	return (minus ? (-f) : f);
 }
 
-string CDefsTable::GetString(string a, const string b) const
+std::string CDefsTable::GetString(std::string a, const std::string b) const
 {
 	a = Lowercase(a);
 	if(Wartosci.find(a) == Wartosci.end()) return b;
 	else return Wartosci.find(a)->second;
 }
 
-bool CDefsTable::GetBool(string a, bool b) const
+bool CDefsTable::GetBool(std::string a, bool b) const
 {
     a = Lowercase(a);
     if(Wartosci.find(a) == Wartosci.end()) return b;
 	else return Wartosci.find(a)->second=="true";
 }
 
-vector<string> CDefsTable::GetList(string a, char inter) const{
-    vector<string> result;
-    string all;
+std::vector<std::string> CDefsTable::GetList(std::string a, char inter) const{
+    std::vector<std::string> result;
+    std::string all;
     all = GetString(a);
-    string buffer = "";
+    std::string buffer = "";
     for(int i=0; i<all.size(); i++) {
         if(all[i]==inter) {
             result.push_back(buffer);
@@ -247,67 +247,67 @@ vector<string> CDefsTable::GetList(string a, char inter) const{
     return result;
 }
 
-vector<int> CDefsTable::GetIntList(string a, char inter) const{
-    vector<string> exploded = GetList(a, inter);
-    vector<int> result;
+std::vector<int> CDefsTable::GetIntList(std::string a, char inter) const{
+    std::vector<std::string> exploded = GetList(a, inter);
+    std::vector<int> result;
     for(int i=0; i<exploded.size(); i++) {
         result.push_back(StrToInt(exploded[i]));
     }
     return result;
 }
 
-CDefsTable* CDefsTable::GetTable(string a) const
+CDefsTable* CDefsTable::GetTable(std::string a) const
 {
 	a = Lowercase(a);
 	if(Tabele.find(a) == Tabele.end()) return EmptyDef;
 	else return Tabele.find(a)->second;
 }
 
-vector <string> CDefsTable::GetWartosci() const
+std::vector <std::string> CDefsTable::GetWartosci() const
 {
-	vector <string> a;
-	for(map <string, string>::const_iterator i = Wartosci.begin(); i != Wartosci.end(); ++i)
+	std::vector <std::string> a;
+	for(std::map <std::string, std::string>::const_iterator i = Wartosci.begin(); i != Wartosci.end(); ++i)
 	{
 		a.push_back(i->first);
 	}
 	return a;
 }
 
-vector <string> CDefsTable::GetRealWartosci() const
+std::vector <std::string> CDefsTable::GetRealWartosci() const
 {
-	vector <string> a;
-	for(map <string, string>::const_iterator i = Wartosci.begin(); i != Wartosci.end(); ++i)
+	std::vector <std::string> a;
+	for(std::map <std::string, std::string>::const_iterator i = Wartosci.begin(); i != Wartosci.end(); ++i)
 	{
 		a.push_back(i->second);
 	}
 	return a;
 }
 
-vector <string> CDefsTable::GetTabeleK() const
+std::vector <std::string> CDefsTable::GetTabeleK() const
 {
-	vector <string> a;
-	for(map <string, CDefsTable*>::const_iterator i = Tabele.begin(); i != Tabele.end(); ++i)
+	std::vector <std::string> a;
+	for(std::map <std::string, CDefsTable*>::const_iterator i = Tabele.begin(); i != Tabele.end(); ++i)
 	{
 		a.push_back(i->first);
 	}
 	return a;
 }
 
-vector <CDefsTable*> CDefsTable::GetTabele() const
+std::vector <CDefsTable*> CDefsTable::GetTabele() const
 {
-	vector <CDefsTable*> a;
-	for(map <string, CDefsTable*>::const_iterator i = Tabele.begin(); i != Tabele.end(); ++i)
+	std::vector <CDefsTable*> a;
+	for(std::map <std::string, CDefsTable*>::const_iterator i = Tabele.begin(); i != Tabele.end(); ++i)
 	{
 		a.push_back(i->second);
 	}
 	return a;
 }
 
-map<string, int> CDefsTable::GetIntMap(string a) const
+std::map<std::string, int> CDefsTable::GetIntMap(std::string a) const
 {
-    map<string, int> result;
+    std::map<std::string, int> result;
     CDefsTable* def = GetTable(a);
-    vector<string> v = def->GetWartosci();
+    std::vector<std::string> v = def->GetWartosci();
     printf("bla\n");
     for(int i=0; i<v.size(); i++) {
         result[v[i]] = def->GetInt(v[i], 0);
@@ -316,9 +316,9 @@ map<string, int> CDefsTable::GetIntMap(string a) const
 }
 
 
-string CDefsTable::GetSource() const {
-    string result;
-    //for(map <string, CDefsTable*>::const_iterator i = Tabele.begin(); i != Tabele.end(); ++i)
-    //for(map <string, CDefsTable*>::const_iterator i = Tabele.begin(); i != Tabele.end(); ++i) 
+std::string CDefsTable::GetSource() const {
+    std::string result;
+    //for(std::map <std::string, CDefsTable*>::const_iterator i = Tabele.begin(); i != Tabele.end(); ++i)
+    //for(std::map <std::string, CDefsTable*>::const_iterator i = Tabele.begin(); i != Tabele.end(); ++i) 
     return result;
 }

@@ -9,17 +9,17 @@
 
 class MAction {
 public:
-    string id;
+    std::string id;
     MIcon* icon;
-    string anim;
+    std::string anim;
     int castingTime;
     int duration;       //czas trwania, 0 oznacza natychmiastowy efekt (sta³y)
     int dist;       //min odleglosc, 0 oznacza brak zakresu
     bool multitarget;
-    string name;
+    std::string name;
     public:
-    map<string, int> effects;
-    map<string, int> selfEffects;
+    std::map<std::string, int> effects;
+    std::map<std::string, int> selfEffects;
     MAction(CDefsTable* defs);
     void cast();
 };

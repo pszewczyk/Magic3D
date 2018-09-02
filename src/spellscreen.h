@@ -7,9 +7,9 @@
 class MSpellScreen : public MWindow {
 private:
     MAction* ContextAction;
-    string keynames[12];
+    std::string keynames[12];
 public:
-    vector<MAction*> slots;
+    std::vector<MAction*> slots;
     MSpellScreen();
     //MSpellScreen(CDefsTable*);
     ~MSpellScreen();
@@ -18,7 +18,7 @@ public:
     //bool unpick(MAction*);
     bool forget(MAction*);
     virtual void draw();
-    string onClick();
+    std::string onClick();
     void showCMenu();
     MAction* getContextAction();
 };

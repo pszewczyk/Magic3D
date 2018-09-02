@@ -63,7 +63,7 @@ MMap::MMap(int x, int y)
     printf("Map created\n");
 }
 
-MMap::MMap(string filename)
+MMap::MMap(std::string filename)
 	: MWorld()
 	, xSize(0)
 	, ySize(0)
@@ -92,7 +92,7 @@ MMap::MMap(string filename)
     in >> n;
     for(int k = 0; k < n; k++) {
         char c;
-        string name;
+        std::string name;
         in >> c;
         in >> name;
         
