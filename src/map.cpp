@@ -77,24 +77,23 @@ MMap::MMap(std::string filename)
     in >> xSize;
     in >> ySize;
 
-    setMem();
-    char buff[xSize][ySize];
-    for(int i = 0; i < xSize; i++)
-	for(int j = 0; j < ySize; j++) {
-		do {
-			buff[i][j] = in.get();
-		} while(buff[i][j] == '\n');
+    printf("%d x %d map\n", xSize, ySize);
 
-		if(buff[i][j] == '.') clear[i][j] = true;
-		else clear[i][j] = false;
-	}
+    setMem();
+    char buff[xSize][ySize + 1];
+    for(int i = 0; i < xSize; i++)
+	    in >> buff[i];
+
     int n;
     in >> n;
+    printf("loading %d objects:\n", n);
     for(int k = 0; k < n; k++) {
         char c;
         std::string name;
         in >> c;
         in >> name;
+
+	printf("loading '%c': %s\n", c, name.c_str());
         
         for(int i = 0; i < xSize; i++)
 		for(int j = 0; j < ySize; j++)

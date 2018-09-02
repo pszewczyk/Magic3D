@@ -129,7 +129,6 @@ void MGame::play() {
         Gmachine->setCursorPos(x, y);
         
         if(!mapa->isLegal(player->x, player->z)) {
-	    printf("illegal position! %d, %d\n", player->y, player->z);
 	    /* FIXME position is not well-reported (linux) */
             //if(!mapa->isLegal(player->x, player->prevz)) player->BackX();
             //if(!mapa->isLegal(player->prevx, player->z)) player->BackZ();
